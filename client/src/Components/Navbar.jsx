@@ -1,3 +1,7 @@
+import { useContext } from "react";
+import { ButtonContext } from "../Contexts/ButtonContext";
+import Button from "./Button";
+
 import {
   Disclosure,
   DisclosureButton,
@@ -17,10 +21,10 @@ function classNames(...classes) {
 }
 
 export default function Navbar() {
+  const { LoginButtonText } = useContext(ButtonContext);
   return (
     <Disclosure as="nav" className="bg-black text-white">
       {({ open }) => (
-        // text purple-700
         <>
           <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
             <div className="relative flex h-16 items-center justify-between">
@@ -59,12 +63,7 @@ export default function Navbar() {
               </div>
 
               <div className="absolute inset-y-0 right-0 flex items-center pr-2">
-                <button
-                  type="button"
-                  class="focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900"
-                >
-                  Login
-                </button>
+                <Button text={"Login"} />
               </div>
             </div>
           </div>
