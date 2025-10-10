@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { ButtonContext } from "../Contexts/ButtonContext";
 import Navbar from "../Components/Navbar";
-import Card from "../Components/Card";
+import Cards from "../Components/Cards";
 import HeroSection from "../Components/HeroSection";
 
 function Home() {
@@ -12,8 +12,8 @@ function Home() {
       <ButtonContext.Provider value={{ ButtonText }}>
         <Navbar />
         <HeroSection />
+        <Cards />
       </ButtonContext.Provider>
-      <Card />
     </>
   );
 }
