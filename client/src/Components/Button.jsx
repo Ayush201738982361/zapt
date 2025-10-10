@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { ButtonContext } from "../Contexts/ButtonContext";
 
 function Button({ text }) {
-  const ButtonText = useContext(ButtonContext);
+  const { ButtonText } = useContext(ButtonContext);
   const button = text || ButtonText;
   return (
     <>
