@@ -1,5 +1,3 @@
-import { useContext } from "react";
-import { ButtonContext } from "../Contexts/ButtonContext";
 import Button from "./Button";
 
 import {
@@ -21,7 +19,6 @@ function classNames(...classes) {
 }
 
 export default function Navbar() {
-  const { LoginButtonText } = useContext(ButtonContext);
   return (
     <Disclosure as="nav" className="bg-black text-white">
       {({ open }) => (
