@@ -1,7 +1,7 @@
 function HeroSection() {
   return (
     <>
-      <section className="flex flex-col items-center justify-center h-[80vh] bg-black text-center -mt-10">
+      <section className="flex flex-col items-center justify-center bg-black text-center mt-40 mb-20">
         <h1 className="text-4xl sm:text-6xl font-extrabold text-white tracking-tight">
           Sharpen Your Aptitude. Ace Every Test.
         </h1>
