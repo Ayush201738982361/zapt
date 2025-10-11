@@ -3,6 +3,7 @@ import { ButtonContext } from "../Contexts/ButtonContext";
 import Navbar from "../Components/Navbar";
 import Cards from "../Components/Cards";
 import HeroSection from "../Components/HeroSection";
+import Categories from "../Components/Categories";
 
 function Home() {
   const [ButtonText] = useState("Default");
@@ -13,6 +14,7 @@ function Home() {
         <Navbar />
         <HeroSection />
         <Cards />
+        <Categories />
       </ButtonContext.Provider>
     </>
   );
