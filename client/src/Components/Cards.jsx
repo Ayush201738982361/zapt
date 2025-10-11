@@ -31,35 +31,44 @@ const card = [
 
 function Card() {
   return (
-    <div className="flex gap-3 flex-row">
-      {card.map((x, i) => {
-        return (
-          <>
-            <div
-              key={i}
-              className="flex flex-col bg-white rounded-2xl max-w-sm mx-auto shadow-2xl hover:shadow-2xl hover:shadow-blue-500/20 transition-all duration-300"
-            >
-              <div className="px-6 py-8 sm:p-10 sm:pb-6">
-                <div className="grid items-center justify-center grid-cols-1 text-center">
-                  <div className="flex justify-center mb-4">{x.icon}</div>
-                  <div>
-                    <h2 className="text-lg font-medium tracking-tighter text-gray-900 lg:text-3xl">
-                      {x.heading}
-                    </h2>
-                    <p className="mt-4 text-gray-600 text-sm">{x.subheading}</p>
+    <>
+      <section className="flex flex-col items-center justify-center bg-black text-center py-16">
+        <h3 className="text-4xl sm:text-6xl font-extrabold text-white tracking-tight">
+          Why Choose Zapt ?
+        </h3>
+      </section>
+      <div className="flex gap-3 flex-row">
+        {card.map((x, i) => {
+          return (
+            <>
+              <div
+                key={i}
+                className="flex flex-col bg-white rounded-2xl max-w-sm mx-auto shadow-2xl hover:shadow-2xl hover:shadow-blue-500/20 transition-all duration-300"
+              >
+                <div className="px-6 py-8 sm:p-10 sm:pb-6">
+                  <div className="grid items-center justify-center grid-cols-1 text-center">
+                    <div className="flex justify-center mb-4">{x.icon}</div>
+                    <div>
+                      <h2 className="text-lg font-medium tracking-tighter text-gray-900 lg:text-3xl">
+                        {x.heading}
+                      </h2>
+                      <p className="mt-4 text-gray-600 text-sm">
+                        {x.subheading}
+                      </p>
+                    </div>
                   </div>
                 </div>
+                <div className="flex justify-center px-6 pb-8 sm:px-8">
+                  <a className="mt-4 text-purple-900 text-sm" href="#">
+                    Learn More
+                  </a>
+                </div>
               </div>
-              <div className="flex justify-center px-6 pb-8 sm:px-8">
-                <a className="mt-4 text-purple-900 text-sm" href="#">
-                  Learn More
-                </a>
-              </div>
-            </div>
-          </>
-        );
-      })}
-    </div>
+            </>
+          );
+        })}
+      </div>
+    </>
   );
 }
 export default Card;
