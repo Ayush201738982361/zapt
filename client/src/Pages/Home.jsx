@@ -4,6 +4,7 @@ import Navbar from "../Components/Navbar";
 import Cards from "../Components/Cards";
 import HeroSection from "../Components/HeroSection";
 import Categories from "../Components/Categories";
+import SampleQuestion from "../Components/SampleQuestion";
 
 function Home() {
   const [ButtonText] = useState("Default");
@@ -15,6 +16,7 @@ function Home() {
         <HeroSection />
         <Cards />
         <Categories />
+        <SampleQuestion />
       </ButtonContext.Provider>
     </>
   );
