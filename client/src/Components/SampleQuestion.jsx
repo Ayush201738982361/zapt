@@ -1,4 +1,11 @@
 function SampleQuestion() {
+  const checkAnswer = () => {
+    const correctAns = document.getElementById("opt3");
+    const correctLabel = document.getElementById("correctLabel");
+    if (correctAns.checked) {
+      correctLabel.style.color = "green";
+    }
+  };
   return (
     <>
       <section className="flex flex-col items-center justify-center bg-black text-center mt-40 mb-20 px-4">
@@ -34,8 +41,9 @@ function SampleQuestion() {
             Rs. 690
           </label>
 
-          <label className="flex items-center gap-2">
+          <label id="correctLabel" className="flex items-center gap-2">
             <input
+              onClick={checkAnswer}
               type="radio"
               id="opt3"
               name="radio-2"
