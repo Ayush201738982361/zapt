@@ -5,6 +5,7 @@ import Cards from "../Components/Cards";
 import HeroSection from "../Components/HeroSection";
 import Categories from "../Components/Categories";
 import SampleQuestion from "../Components/SampleQuestion";
+import Footer from "../Components/Footer";
 
 function Home() {
   const [ButtonText] = useState("Default");
@@ -18,6 +19,7 @@ function Home() {
         <Categories />
         <SampleQuestion />
       </ButtonContext.Provider>
+      <Footer />
     </>
   );
 }
