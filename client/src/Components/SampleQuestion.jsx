@@ -8,7 +8,7 @@ function SampleQuestion() {
   };
   return (
     <>
-      <section className="flex flex-col items-center justify-center bg-black text-center mt-40 mb-20 px-4">
+      <section className="flex flex-col items-center justify-center bg-black text-center mt-40 mb-10 px-4">
         <h1 className="text-4xl sm:text-6xl font-extrabold text-white tracking-tight">
           Here are a few challenges to get your feet wet
         </h1>
@@ -20,7 +20,7 @@ function SampleQuestion() {
           Rs. 854 in 4 years. The sum is:
         </p>
 
-        <div className="flex flex-col gap-3">
+        <div className="flex flex-col gap-3 mb-5">
           <label className="flex items-center gap-2">
             <input
               type="radio"
