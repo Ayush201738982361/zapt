@@ -78,7 +78,7 @@ function Footer() {
 
                 <a
                   className="text-gray-700 transition hover:text-gray-700/75"
-                  href="#"
+                  href="https://github.com/Ayush201738982361/zapt"
                   target="_blank"
                   rel="noreferrer"
                 >
@@ -132,7 +132,7 @@ function Footer() {
                 <ul className="mt-6 space-y-1">
                   <li>
                     <a
-                      className="text-gray-700 transition hover:text-gray-700/75"
+                      className="text-white-700 transition hover:text-gray-700/75"
                       href="#"
                     >
                       {" "}
@@ -142,7 +142,7 @@ function Footer() {
 
                   <li>
                     <a
-                      className="text-gray-700 transition hover:text-gray-700/75"
+                      className="text-white-700 transition hover:text-gray-700/75"
                       href="#"
                     >
                       Quantitative Aptitude
@@ -151,7 +151,7 @@ function Footer() {
 
                   <li>
                     <a
-                      className="text-gray-700 transition hover:text-gray-700/75"
+                      className="text-white-700 transition hover:text-gray-700/75"
                       href="#"
                     >
                       Verbal
@@ -160,7 +160,7 @@ function Footer() {
 
                   <li>
                     <a
-                      className="text-gray-700 transition hover:text-gray-700/75"
+                      className="text-white-700 transition hover:text-gray-700/75"
                       href="#"
                     >
                       Puzzles
@@ -175,7 +175,7 @@ function Footer() {
                 <ul className="mt-6 space-y-1">
                   <li>
                     <a
-                      className="text-gray-700 transition hover:text-gray-700/75"
+                      className="text-white-700 transition hover:text-gray-700/75"
                       href="#"
                     >
                       {" "}
@@ -185,7 +185,7 @@ function Footer() {
 
                   <li>
                     <a
-                      className="text-gray-700 transition hover:text-gray-700/75"
+                      className="text-white-700 transition hover:text-gray-700/75"
                       href="#"
                     >
                       {" "}
@@ -195,7 +195,7 @@ function Footer() {
 
                   <li>
                     <a
-                      className="text-gray-700 transition hover:text-gray-700/75"
+                      className="text-white-700 transition hover:text-gray-700/75"
                       href="#"
                     >
                       {" "}
@@ -214,7 +214,7 @@ function Footer() {
                 <ul className="mt-6 space-y-1">
                   <li>
                     <a
-                      className="text-gray-700 transition hover:text-gray-700/75"
+                      className="text-white-700 transition hover:text-gray-700/75"
                       href="#"
                     >
                       {" "}
