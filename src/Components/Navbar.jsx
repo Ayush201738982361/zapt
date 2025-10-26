@@ -60,7 +60,7 @@ export default function Navbar() {
               </div>
 
               <div className="absolute inset-y-0 right-0 flex items-center pr-2">
-                <Button text={"Login"} />
+                <Button targetLink={"/login"} text={"Login"} />
               </div>
             </div>
           </div>
