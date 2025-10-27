@@ -124,7 +124,7 @@ function Footer() {
 
             <div className="grid grid-cols-1 gap-8 text-center lg:grid-cols-3 lg:text-left">
               <div>
-                <strong className="font-medium text-purple-900">
+                <strong className="font-medium text-purple-500">
                   {" "}
                   Categories{" "}
                 </strong>
@@ -170,7 +170,7 @@ function Footer() {
               </div>
 
               <div>
-                <strong className="font-medium text-purple-900"> About </strong>
+                <strong className="font-medium text-purple-500"> About </strong>
 
                 <ul className="mt-6 space-y-1">
                   <li>
@@ -206,7 +206,7 @@ function Footer() {
               </div>
 
               <div>
-                <strong className="font-medium text-purple-900">
+                <strong className="font-medium text-purple-500">
                   {" "}
                   Support{" "}
                 </strong>
