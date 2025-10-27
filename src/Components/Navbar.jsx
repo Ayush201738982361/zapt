@@ -1,4 +1,5 @@
 import Button from "./Button";
+import { Link } from "react-router-dom";
 
 import {
   Disclosure,
@@ -37,7 +38,9 @@ export default function Navbar() {
 
               <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                 <div className="flex shrink-0 items-center mr-16">
-                  <span className="text-lg font-bold">Zapt</span>
+                  <Link to="/">
+                    <span className="text-lg font-bold">Zapt</span>
+                  </Link>
                 </div>
                 <div className="hidden sm:ml-6 sm:block">
                   <div className="flex space-x-4">
