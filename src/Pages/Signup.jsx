@@ -24,10 +24,9 @@ function Signup() {
 
     if (error) {
       errorToast();
-      console.log("Error sign up", error);
+      return;
     }
     sucessToast();
-    console.log(data);
   };
 
   return (
