@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { supabase } from "../supabase-client";
+import { useNavigate } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
 import Navbar from "../Components/Navbar";
 import Footer from "../Components/Footer";
@@ -9,12 +10,14 @@ function Signup() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const navigate = useNavigate();
+
   const sucessToast = () => toast.success("Signup sucessfull");
   const errorToast = () => toast.error("Error in signing up");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const { error, data } = await supabase.auth.signUp({
+    const { error } = await supabase.auth.signUp({
       email,
       password,
       options: {
@@ -27,6 +30,7 @@ function Signup() {
       return;
     }
     sucessToast();
+    navigate("/");
   };
 
   return (
