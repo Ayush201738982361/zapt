@@ -1,6 +1,7 @@
 import Navbar from "../Components/Navbar";
 import Footer from "../Components/Footer";
 import toast, { Toaster } from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 import { supabase } from "../supabase-client";
 import { useState } from "react";
 import { Link } from "react-router-dom";
@@ -9,12 +10,14 @@ function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const navigate = useNavigate();
+
   const sucessToast = () => toast.success("Login sucessfull");
   const errorToast = () => toast.error("Error in Logging in");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const { error, data } = await supabase.auth.signInWithPassword({
+    const { error } = await supabase.auth.signInWithPassword({
       email,
       password,
     });
@@ -25,7 +28,7 @@ function Login() {
       return;
     }
     sucessToast();
-    console.log(data);
+    navigate("/");
   };
 
   return (
