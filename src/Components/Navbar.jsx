@@ -1,4 +1,6 @@
 import Button from "./Button";
+import { useEffect, useState } from "react";
+import { supabase } from "../supabase-client";
 import { Link } from "react-router-dom";
 
 import {
@@ -20,6 +22,23 @@ function classNames(...classes) {
 }
 
 export default function Navbar() {
+  const [session, setSession] = useState(null);
+  useEffect(() => {
+    supabase.auth.getSession().then((data) => {
+      setSession(data.session);
+    });
+
+    const {
+      data: { subscription },
+    } = supabase.auth.onAuthStateChange((_event, session) => {
+      setSession(session);
+    });
+
+    return () => {
+      subscription.unsubscribe();
+    };
+  }, []);
+  console.log(session);
   return (
     <Disclosure as="nav" className="bg-black text-white">
       {({ open }) => (
@@ -63,7 +82,13 @@ export default function Navbar() {
               </div>
 
               <div className="absolute inset-y-0 right-0 flex items-center pr-2">
-                <Button targetLink={"/login"} text={"Login"} />
+                {session ? (
+                  <span className="text-lg font-bold">
+                    {`Hello ${session.user.user_metadata.username}`}
+                  </span>
+                ) : (
+                  <Button targetLink={"/login"} text={"Login"} />
+                )}
               </div>
             </div>
           </div>
