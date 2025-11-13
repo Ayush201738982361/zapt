@@ -38,7 +38,7 @@ export default function Navbar() {
       subscription.unsubscribe();
     };
   }, []);
-  console.log(session);
+
   return (
     <Disclosure as="nav" className="bg-black text-white">
       {({ open }) => (
