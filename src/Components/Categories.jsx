@@ -10,24 +10,29 @@ function Categories() {
       heading: "Logical Reasoning",
       subheading:
         "Sharpen your problem-solving skills with puzzles and pattern-based questions.",
+      target: "/logical-reasoning",
     },
     {
       icon: <TbMath />,
       heading: "Quantitative Aptitude",
       subheading:
         "Strengthen your mathematical ability with arithmetic, algebra, and data questions.",
+      target: "/quant",
     },
     {
       icon: <IoExtensionPuzzleSharp />,
       heading: "Puzzles & Brainteasers",
       subheading:
         "Challenge your mind with fun logic puzzles that boost creative thinking.",
+
+      target: "/puzzles",
     },
     {
       icon: <SiGrammarly />,
       heading: "Verbal Ability",
       subheading:
         "Enhance your grammar, vocabulary, and comprehension to communicate effectively.",
+      target: "/verbal-ability",
     },
   ];
   return (
@@ -58,7 +63,7 @@ function Categories() {
                 </div>
               </div>
               <div className="flex justify-center px-6 pb-8 sm:px-8">
-                <a className="mt-4 text-purple-900 text-sm" href="#">
+                <a className="mt-4 text-purple-900 text-sm" href={x.target}>
                   Start
                 </a>
               </div>
