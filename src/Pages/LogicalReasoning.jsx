@@ -7,7 +7,7 @@ function LogicalReasoning() {
             <tr className="border-b border-slate-700 bg-slate-800/50">
               <th className="p-3">
                 <p className="block font-sans text-xs antialiased font-semibold uppercase leading-none text-slate-400">
-                  Problem Description
+                  Problems
                 </p>
               </th>
               <th className="p-3">
