@@ -1,26 +1,39 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Navbar from "../Components/Navbar";
-import { supabase } from "../supabase-client";
 
 function Admin() {
-  const [adminSession, setAdminSession] = useState(null);
-  const [loading, setLoading] = useState(true);
+  // Form Submission States
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+  const [difficulty, setDifficulty] = useState("");
+  const [optionA, setOptionA] = useState("");
+  const [optionB, setOptionB] = useState("");
+  const [optionC, setOptionC] = useState("");
+  const [optionD, setOptionD] = useState("");
+  const [correctAnswer, setCorrectAnswer] = useState("");
 
-  useEffect(() => {
-    supabase.auth.getSession().then(({ data }) => {
-      setAdminSession(data.session);
-      setLoading(false);
+  const handleSubmit = async function () {
+    const slug = title
+      .toLowerCase()
+      .trim()
+      .replace(/[^a-z0-9\s-]/g, "")
+      .replace(/[\s-]+/g, "-")
+      .replace(/^-+|-+$/g, "");
+
+    console.log({
+      Title: title,
+      Description: description,
+      Difficulty: difficulty,
+      Options: {
+        optionA,
+        optionB,
+        optionC,
+        optionD,
+      },
+      "Correct Answer": correctAnswer,
+      Slug: slug,
     });
-  }, []);
-
-  if (loading) {
-    return (
-      <div className="text-center mt-5">
-        <div className="w-16 h-16 border-4 border-dashed rounded-full animate-spin border-yellow-500 mx-auto"></div>
-        <h2 className="text-zinc-900 dark:text-white mt-4">Loading...</h2>
-      </div>
-    );
-  }
+  };
 
   return (
     <>
@@ -28,41 +41,52 @@ function Admin() {
       <section className="mt-20">
         <div className="flex items-center justify-center px-4 py-10 sm:px-6 sm:py-16 lg:px-8 lg:py-8">
           <div className="xl:mx-auto xl:w-full shadow-md p-4 xl:max-w-sm 2xl:max-w-md">
-            <h2 className="text-center text-2xl font-bold leading-tight text-white">
-              Hi {adminSession?.user?.user_metadata?.username}
-            </h2>
-
-            <form className="mt-8">
+            <form className="mt-8" onSubmit={handleSubmit}>
               <div className="space-y-5">
+                {/* Title */}
                 <div>
                   <label className="text-base font-medium text-purple-500">
                     Title
                   </label>
                   <input
+                    onChange={(e) => {
+                      setTitle(e.target.value);
+                    }}
                     type="text"
                     placeholder="Question Title"
                     className="mt-2 flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400"
                   />
                 </div>
 
+                {/* Description */}
+
                 <div>
                   <label className="text-base font-medium text-purple-500">
                     Question Description
                   </label>
                   <textarea
+                    onChange={(e) => {
+                      setDescription(e.target.value);
+                    }}
                     placeholder="Description"
                     className="mt-2 flex h-40 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400"
                   />
                 </div>
 
+                {/* Difficulty */}
                 <div>
                   <label className="text-base font-medium text-purple-500">
                     Question Difficulty
                   </label>
 
-                  <select className="mt-2 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm text-white focus:outline-none focus:ring-1 focus:ring-gray-400">
+                  <select
+                    className="mt-2 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm text-white focus:outline-none focus:ring-1 focus:ring-gray-400"
+                    onChange={(e) => {
+                      setDifficulty(e.target.value);
+                    }}
+                  >
                     <option value="" className="bg-gray-800">
-                      Options
+                      Choose The Difficulty
                     </option>
                     <option value="easy" className="bg-gray-800">
                       Easy
@@ -74,6 +98,66 @@ function Admin() {
                       Hard
                     </option>
                   </select>
+                </div>
+
+                {/* Options */}
+                <div>
+                  <label className="text-base  font-medium text-purple-500">
+                    Question Options
+                  </label>
+
+                  <input
+                    type="text"
+                    placeholder="Option A"
+                    onChange={(e) => {
+                      setOptionA(e.target.value);
+                    }}
+                    className="mt-2 flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400"
+                  />
+
+                  <input
+                    type="text"
+                    placeholder="Option B"
+                    onChange={(e) => {
+                      setOptionB(e.target.value);
+                    }}
+                    className="mt-2 flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400"
+                  />
+
+                  <input
+                    type="text"
+                    placeholder="Option C"
+                    onChange={(e) => {
+                      setOptionC(e.target.value);
+                    }}
+                    className="mt-2 flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400"
+                  />
+
+                  <input
+                    type="text"
+                    placeholder="Option D"
+                    onChange={(e) => {
+                      setOptionD(e.target.value);
+                    }}
+                    className="mt-2 flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400"
+                  />
+                </div>
+
+                {/* Correct Answer */}
+
+                <div>
+                  <label className="text-base font-medium text-purple-500">
+                    Correct Answer
+                  </label>
+
+                  <input
+                    type="text"
+                    placeholder="Correct Answer"
+                    onChange={(e) => {
+                      setCorrectAnswer(e.target.value);
+                    }}
+                    className="mt-2 flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400"
+                  />
                 </div>
 
                 <div className="mt-2 flex items-center justify-center">
