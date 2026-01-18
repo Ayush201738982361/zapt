@@ -5,8 +5,6 @@ import { supabase } from "../supabase-client";
 function Admin() {
   const [adminSession, setAdminSession] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [difficultyOpen, setDifficultyOpen] = useState(false);
-  const [difficulty, setDifficulty] = useState("Options");
 
   useEffect(() => {
     supabase.auth.getSession().then(({ data }) => {
@@ -57,66 +55,25 @@ function Admin() {
                   />
                 </div>
 
-                <div className="relative">
+                <div>
                   <label className="text-base font-medium text-purple-500">
                     Question Difficulty
                   </label>
 
-                  <button
-                    type="button"
-                    onClick={() => setDifficultyOpen(!difficultyOpen)}
-                    className="mt-2 inline-flex w-full justify-between items-center rounded-md bg-white/10 px-3 py-2 text-sm font-semibold text-white hover:bg-white/20"
-                  >
-                    {difficulty}
-                    <svg
-                      className="size-5 text-gray-400"
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
-                  </button>
-
-                  {difficultyOpen && (
-                    <div className="absolute z-10 mt-2 w-full rounded-md bg-gray-800 shadow-lg">
-                      <button
-                        type="button"
-                        onClick={() => {
-                          setDifficulty("Easy");
-                          setDifficultyOpen(false);
-                        }}
-                        className="block w-full px-4 py-2 text-left text-sm text-gray-300 hover:bg-white/10"
-                      >
-                        Easy
-                      </button>
-
-                      <button
-                        type="button"
-                        onClick={() => {
-                          setDifficulty("Medium");
-                          setDifficultyOpen(false);
-                        }}
-                        className="block w-full px-4 py-2 text-left text-sm text-gray-300 hover:bg-white/10"
-                      >
-                        Medium
-                      </button>
-
-                      <button
-                        type="button"
-                        onClick={() => {
-                          setDifficulty("Hard");
-                          setDifficultyOpen(false);
-                        }}
-                        className="block w-full px-4 py-2 text-left text-sm text-gray-300 hover:bg-white/10"
-                      >
-                        Hard
-                      </button>
-                    </div>
-                  )}
+                  <select className="mt-2 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm text-white focus:outline-none focus:ring-1 focus:ring-gray-400">
+                    <option value="" className="bg-gray-800">
+                      Options
+                    </option>
+                    <option value="easy" className="bg-gray-800">
+                      Easy
+                    </option>
+                    <option value="medium" className="bg-gray-800">
+                      Medium
+                    </option>
+                    <option value="hard" className="bg-gray-800">
+                      Hard
+                    </option>
+                  </select>
                 </div>
 
                 <div className="mt-2 flex items-center justify-center">
