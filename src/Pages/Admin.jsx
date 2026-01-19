@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { supabase } from "../supabase-client";
 import Navbar from "../Components/Navbar";
 
 function Admin() {
@@ -12,7 +13,8 @@ function Admin() {
   const [optionD, setOptionD] = useState("");
   const [correctAnswer, setCorrectAnswer] = useState("");
 
-  const handleSubmit = async function () {
+  const handleSubmit = async function (e) {
+    e.preventDefault();
     const slug = title
       .toLowerCase()
       .trim()
