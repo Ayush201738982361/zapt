@@ -1,8 +1,12 @@
 import { useState } from "react";
 import { supabase } from "../supabase-client";
+import toast, { Toaster } from "react-hot-toast";
 import Navbar from "../Components/Navbar";
 
 function Admin() {
+  const sucessToast = () => toast.success("Question entered sucessfully");
+  const errorToast = () => toast.error("Error in entering the question");
+
   // Form Submission States
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -22,24 +26,33 @@ function Admin() {
       .replace(/[\s-]+/g, "-")
       .replace(/^-+|-+$/g, "");
 
-    console.log({
-      Title: title,
-      Description: description,
-      Difficulty: difficulty,
-      Options: {
-        optionA,
-        optionB,
-        optionC,
-        optionD,
+    const { data, error } = await supabase.from("logical_reasoning").insert([
+      {
+        question_title: title,
+        question_description: description,
+        difficulty: difficulty,
+        options: {
+          optionA,
+          optionB,
+          optionC,
+          optionD,
+        },
+        correct_answer: correctAnswer,
+        slug: slug,
       },
-      "Correct Answer": correctAnswer,
-      Slug: slug,
-    });
+    ]);
+    if (error) {
+      errorToast();
+      console.log(error);
+      return;
+    }
+    sucessToast();
   };
 
   return (
     <>
       <Navbar />
+      <Toaster />
       <section className="mt-20">
         <div className="flex items-center justify-center px-4 py-10 sm:px-6 sm:py-16 lg:px-8 lg:py-8">
           <div className="xl:mx-auto xl:w-full shadow-md p-4 xl:max-w-sm 2xl:max-w-md">
