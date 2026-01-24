@@ -11,7 +11,7 @@ import {
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 
 const navigation = [
-  { name: "Logical Reasoning", href: "#", current: false },
+  { name: "Logical Reasoning", href: "logical-reasoning", current: false },
   { name: "Quantitative Aptitude", href: "#", current: false },
   { name: "Verbal Ability", href: "#", current: false },
   { name: "Puzzles and Brainteasers", href: "#", current: false },
@@ -71,7 +71,7 @@ export default function Navbar() {
                           item.current
                             ? "bg-gray-900 text-white"
                             : "text-gray-300 hover:bg-gray-700 hover:text-white",
-                          "rounded-md px-3 py-2 text-sm font-medium"
+                          "rounded-md px-3 py-2 text-sm font-medium",
                         )}
                       >
                         {item.name}
@@ -104,7 +104,7 @@ export default function Navbar() {
                     item.current
                       ? "bg-gray-900 text-white"
                       : "text-gray-300 hover:bg-gray-700 hover:text-white",
-                    "block rounded-md px-3 py-2 text-base font-medium"
+                    "block rounded-md px-3 py-2 text-base font-medium",
                   )}
                 >
                   {item.name}
