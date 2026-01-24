@@ -1,4 +1,30 @@
+import { supabase } from "../supabase-client";
+import { useEffect, useState } from "react";
+
 function LogicalReasoning() {
+  const [questionTitle, setQuestionTitle] = useState([]);
+  const [difficulty, setDifficulty] = useState([]);
+
+  useEffect(() => {
+    async function fetchData() {
+      const { data, error } = await supabase
+        .from("logical_reasoning")
+        .select("question_title,difficulty");
+
+      if (error) {
+        console.log("Error in fetching data:", error);
+      }
+
+      setQuestionTitle(data.map((item) => item.question_title));
+
+      setDifficulty(data.map((item) => item.difficulty));
+    }
+
+    console.log(questionTitle);
+
+    fetchData();
+  }, []);
+
   return (
     <div className="w-full p-4">
       <div className="relative flex flex-col mx-auto max-w-2x2 overflow-hidden text-white bg-black shadow-md rounded-xl bg-clip-border border border-slate-800">
