@@ -43,7 +43,6 @@ function Admin() {
     ]);
     if (error) {
       errorToast();
-      console.log(error);
       return;
     }
     sucessToast();
