@@ -3,17 +3,15 @@ version: 0.2
 phases:
   install:
     runtime-versions:
-      nodejs: 18
+      nodejs: 20
     commands:
-      - pwd
-      - ls -la
-      - cat package.json
       - corepack enable
-      - yarn install
+      - corepack prepare yarn@1.22.22 --activate
+      - yarn install --frozen-lockfile
 
   build:
     commands:
-      - echo Installing dependencies ...
+      - echo "Building project..."
       - yarn build
 
 artifacts:
