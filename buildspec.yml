@@ -6,6 +6,7 @@ phases:
       nodejs: 18
     commands:
       - corepack enable
+      - corepack prepare yarn@1.22.22 --activate
       - yarn install --frozen-lockfile
 
   build:
