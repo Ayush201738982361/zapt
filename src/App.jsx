@@ -46,7 +46,10 @@ function App() {
             <Route path="/index.html" element={<Home />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
-            <Route path="/logical-reasoning" element={<LogicalReasoning />} />
+            <Route
+              path="/logical-reasoning.html"
+              element={<LogicalReasoning />}
+            />
             <Route
               path="/admin"
               element={
