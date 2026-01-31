@@ -1,4 +1,4 @@
-import { Navigate, BrowserRouter, Routes, Route } from "react-router-dom";
+import { Navigate, HashRouter, Routes, Route } from "react-router-dom";
 import { supabase } from "./supabase-client";
 import { useState, useEffect } from "react";
 import { ButtonContext } from "./Contexts/ButtonContext";
@@ -40,10 +40,9 @@ function App() {
   return (
     <>
       <ButtonContext.Provider value={{ ButtonText }}>
-        <BrowserRouter>
+        <HashRouter>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/index.html" element={<Home />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/logical-reasoning" element={<LogicalReasoning />} />
@@ -54,7 +53,7 @@ function App() {
               }
             />
           </Routes>
-        </BrowserRouter>
+        </HashRouter>
       </ButtonContext.Provider>
     </>
   );
